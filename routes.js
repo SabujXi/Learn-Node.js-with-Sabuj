@@ -3,6 +3,7 @@ var form = require("./views/form").form;
 var process_form = require("./views/process_form").process_form;
 var view_404 = require("./views/view_404").view_404;
 var static_files = require("./views/static_files").static_files;
+var globalo = require("./views/globalo").globalo;
 
 var routes = [
     {
@@ -20,6 +21,10 @@ var routes = [
     {
         pattern: 'static/',
         handler: static_files 
+    },
+    {
+        pattern: 'globalo',
+        handler: globalo
     }
 ]
 

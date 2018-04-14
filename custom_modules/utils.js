@@ -22,7 +22,7 @@ exports.plainFileResponse = function plainFileResponse(file_name, response){
     });
 }
 
-exports.handleSimpleForm = function handleSimpleForm(url_comps, request, response){
+exports.handleSimpleForm = function handleSimpleForm(request, response, url_comps){
     var params = url_comps.query;
     var name = params['name'];
     var profession = params['profession'];

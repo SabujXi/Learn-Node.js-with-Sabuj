@@ -1,5 +1,6 @@
 var url = require('url');
 var routes = require("../routes").routes;
+var view_404 = require('../routes').view_404;
 
 exports.serveRequests = function(request, response){
     const url_comps = url.parse(request.url, true);
@@ -10,6 +11,7 @@ exports.serveRequests = function(request, response){
         path = path.slice(1);
     }
 
+    var found = false;
     for (var i = 0; i < routes.length; i++)
     {
         var router = routes[i];
@@ -22,7 +24,12 @@ exports.serveRequests = function(request, response){
 
         if (path === pattern){
             handler(request, response, url_comps);
+            found = true;
             break;
         }
-    };
+    }
+
+    if (!found){
+        view_404(request, response, url_comps);
+    }
 };

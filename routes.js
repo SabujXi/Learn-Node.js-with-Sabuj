@@ -4,6 +4,7 @@ var process_form = require("./views/process_form").process_form;
 var view_404 = require("./views/view_404").view_404;
 var static_files = require("./views/static_files").static_files;
 var globalo = require("./views/globalo").globalo;
+var templated_view = require("./views/templated_view").templated_view;
 
 var routes = [
     {
@@ -25,11 +26,12 @@ var routes = [
     {
         pattern: 'globalo',
         handler: globalo
+    },
+    {
+        pattern: 'templated_view',
+        handler: templated_view
     }
 ]
-
-
-
 
 exports.routes = routes;
 exports.view_404 = view_404;

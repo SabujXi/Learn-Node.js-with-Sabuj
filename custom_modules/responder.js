@@ -15,8 +15,6 @@ exports.serveRequests = function(request, response){
     for (i = 0; i < routes.length; i++)
     {
         var router = routes[i];
-        console.log("Router: ")
-        console.log(router)
         var pattern = router.pattern;
         var handler = router.handler;
         

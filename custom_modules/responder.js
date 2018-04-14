@@ -12,9 +12,11 @@ exports.serveRequests = function(request, response){
     }
 
     var found = false;
-    for (var i = 0; i < routes.length; i++)
+    for (i = 0; i < routes.length; i++)
     {
         var router = routes[i];
+        console.log("Router: ")
+        console.log(router)
         var pattern = router.pattern;
         var handler = router.handler;
         
@@ -23,6 +25,10 @@ exports.serveRequests = function(request, response){
         }
 
         if (path === pattern){
+            handler(request, response, url_comps);
+            found = true;
+            break;
+        }else if(pattern !== '' &&  path.startsWith(pattern)){
             handler(request, response, url_comps);
             found = true;
             break;
